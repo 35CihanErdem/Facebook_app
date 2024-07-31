@@ -1,0 +1,156 @@
+/* Genel Arka Plan */
+.post-container {
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 15px;
+}
+
+/* Arka Plan Resmi */
+.background-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Profil Fotoğrafı */
+.profile-photo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Açıklama */
+.description {
+  margin-top: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* İçerik */
+.content {
+  margin-top: 20px;
+}
+
+/* Bilgi Satırı */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Buton Grubu */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Yorumlar */
+.comments {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Tekil Yorum */
+.comment {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Yorum Başlığı */
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Yorum Metni */
+.comment-text {
+  margin-left: 10px;
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Yorum Boşluğu */
+.yorumlar_bosluk {
+  margin-top: 5px;
+}
+
+/* Yorum Ekleme Alanı */
+.add-comment {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Yorum Gönder Butonu */
+.yorum_buton {
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.yorum_buton:hover {
+  background-color: #ffffff;
+}
+
+/* Beğen Butonu */
+.begeni_buton {
+  padding: 8px 12px;
+  background-color: #ffffff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.begeni_buton:hover {
+  background-color: #ffffff;
+}
+
+/* Logout Butonu */
+.logout_btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout_btn:hover {
+  background-color: #ffffff;
+}

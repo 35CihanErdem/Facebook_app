@@ -1,0 +1,14 @@
+<div class="login-container">
+  <div class="giris_form">
+    <h2>Kayıt Ol</h2>
+    <form (ngSubmit)="register()">
+      <app-input class="register_name" label="Kullanıcı Adı:" [value]="username" (valueChange)="onUsernameChange($event)"></app-input>
+      <app-input type="password"  class="register_password" label="Parola:" [value]="password" (valueChange)="onPasswordChange($event)"></app-input>
+      <app-btn (buton)="btnregister()" label="Kayıt Ol"></app-btn>
+      <p class="login-link">
+        Zaten bir hesabınız var mı? <a [routerLink]="['/login']">Giriş Yap</a>
+      </p>
+    </form>
+  </div>
+</div>
+
