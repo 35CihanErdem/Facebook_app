@@ -19,22 +19,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   newComment: string = '';
-  data = [
-    {
-      gonderi_kisi: 'John Doe',
-      aciklama: 'Beautiful scenery!',
-      resim: 'assets/kisi2.jpg',
-      ppfoto: 'assets/kisi1.jpg',
-      gonderi_tarih: '2024-07-31',
-      begeni: 10,
-      yorumlar: [
-        { kisi: 'Jane Doe', yorum: 'Lovely!', yorum_tarih: '2024-07-30', ppfoto: 'assets/kisi2.jpg' }
-      ],
-      showComments: false,
-      liked: false
-    },
-    // Diğer gönderiler...
-  ];
+  data: any[] = [];
 
   constructor(private authService: AuthService, private authdataService: AuthdataService, private http: HttpClient) {}
 
@@ -43,8 +28,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Yerel depolamadan verileri yükle
+    this.loadPosts();
+  }
+
+  loadPosts() {
     this.http.get<any[]>('assets/veriler.json').subscribe(response => {
-      this.data = response;
+      this.data = response.map(post => {
+        // Yerel depolamada var mı kontrol et
+        const storedPost = localStorage.getItem('post_' + post.gonderi_tarih);
+        return storedPost ? JSON.parse(storedPost) : post;
+      });
     });
   }
 
@@ -57,6 +51,8 @@ export class HomeComponent implements OnInit {
         yorum: this.newComment
       });
       this.newComment = '';
+      // Veriyi yerel depolamaya kaydet
+      localStorage.setItem('post_' + post.gonderi_tarih, JSON.stringify(post));
     }
   }
 
@@ -68,6 +64,8 @@ export class HomeComponent implements OnInit {
       post.begeni -= 1;
       post.liked = false;
     }
+    // Veriyi yerel depolamaya kaydet
+    localStorage.setItem('post_' + post.gonderi_tarih, JSON.stringify(post));
   }
 
   toggleComments(item: any) {
