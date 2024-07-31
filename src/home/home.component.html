@@ -1,48 +1,61 @@
-<div *ngFor="let item of data" class="post-container">
-  <div class="background-image">
-    <p class="description">{{ item.gonderi_kisi }}: {{ item.aciklama }}</p>
-    <img [src]="item.resim" width="500px" height="300px" style="margin-top: 10px;" alt="background resmi" />
-    <img [src]="item.ppfoto" alt="profil fotoğrafı" class="post-photo" />
-  </div>
-  
-  <div class="content">
-    <div class="info-row">
-      <p>{{ item.gonderi_tarih }}</p>
-      <div class="buttons">
-        <button [ngClass]="{'liked': item.liked, 'btn': true}" (click)="likePost(item)">
-          <i class="fas fa-thumbs-up"></i> Beğen
-        </button>
-        <button class="btn comment-btn" (click)="toggleComments(item)">
-          <i class="fas fa-comments"></i> Yorumlar ({{ item.yorumlar.length }})
-        </button>
-      </div>
-      <p>Beğeni: {{ item.begeni }}</p>
-    </div>
-    
-    <div *ngIf="item.showComments">
-      <div class="comments">
-        <div *ngFor="let yorum of item.yorumlar" class="comment">
-          <div class="comment-header">
-            <img [src]="yorum.ppfoto" alt="profil fotoğrafı" class="profile-photo" />
-            <div class="comment-text">
-              <strong>{{ yorum.kisi }} ({{ yorum.yorum_tarih }})</strong>
-              <p class="yorumlar_bosluk">{{ yorum.yorum }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Yorum ekleme alanı -->
-      <div class="add-comment">
-        <input type="text" [(ngModel)]="newComment" placeholder="Yorum ekle..." />
-        <button class="btn send-btn" (click)="addComment(item)">
-          Gönder
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="back-ground">
+  <header class="navbar">
+    <h1 style="font-family:'Courier New', Courier, monospace;"> Login App</h1>
+     <app-btn class="out_btn" [buttonClass]="'logout-btn'" (buttonClick)="onLogout()">
+       <i class="fas fa-sign-out-alt"></i> <!-- Logout ikonu -->
+     </app-btn>
+     
+   </header>
+   
+   <header class="navbar2">
+   
+   </header>
+   
+   <div *ngFor="let item of data" class="post-container">
+     <div class="background-image">
+       <p class="description">{{ item.gonderi_kisi }}: {{ item.aciklama }}</p>
+       <img [src]="item.resim" width="500px" height="300px" style="margin-top: 10px;" alt="background resmi" />
+       <img [src]="item.ppfoto" alt="profil fotoğrafı" class="post-photo" />
+     </div>
+     
+     <div class="content">
+       <div class="info-row">
+         <p>{{ item.gonderi_tarih }}</p>
+         <div class="buttons">
+           <button [ngClass]="{'liked': item.liked, 'btn': true}" (click)="likePost(item)">
+             <i class="fas fa-thumbs-up"></i> Beğen
+           </button>
+           <button class="btn comment-btn" (click)="toggleComments(item)">
+             <i class="fas fa-comments"></i> Yorumlar ({{ item.yorumlar.length }})
+           </button>
+         </div>
+         <p>Beğeni: {{ item.begeni }}</p>
+       </div>
+       
+       <div *ngIf="item.showComments">
+         <div class="comments">
+           <div *ngFor="let yorum of item.yorumlar" class="comment">
+             <div class="comment-header">
+               <img [src]="yorum.ppfoto" alt="profil fotoğrafı" class="profile-photo" />
+               <div class="comment-text">
+                 <strong>{{ yorum.kisi }} ({{ yorum.yorum_tarih }})</strong>
+                 <p class="yorumlar_bosluk">{{ yorum.yorum }}</p>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+         <!-- Yorum ekleme alanı -->
+         <div class="add-comment">
+           <input type="text" [(ngModel)]="newComment" placeholder="Yorum ekle..." />
+           <button class="btn send-btn" (click)="addComment(item)">
+             Gönder
+           </button>
+         </div>
+       </div>
+     </div>
+   </div>
+   
 
-<button class="btn logout-btn" (click)="onLogout()">
-  Logout
-</button>
+
+</div>

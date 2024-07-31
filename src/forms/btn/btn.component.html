@@ -1,1 +1,4 @@
-<button (click)="onClick()" class="btn">{{ label }}</button>
+<button [ngClass]="buttonClass" (click)="buttonClick.emit()">
+  <ng-content></ng-content> <!-- Burada dışarıdan gelen içeriği render eder -->
+  {{ label }}
+</button>
