@@ -17,9 +17,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
- 
-  newComment: any;
+export class HomeComponent implements OnInit {
+  newComment: string = '';
   data = [
     {
       gonderi_kisi: 'John Doe',
@@ -28,17 +27,20 @@ export class HomeComponent implements OnInit{
       ppfoto: 'assets/kisi1.jpg',
       gonderi_tarih: '2024-07-31',
       begeni: 10,
-      liked: false,
       yorumlar: [
-        { kisi: 'Jane Doe', yorum: 'Lovely!', yorum_tarih: '2024-07-30', ppfoto: 'assets/kisi2.jpg' },
-        // Diğer yorumlar...
+        { kisi: 'Jane Doe', yorum: 'Lovely!', yorum_tarih: '2024-07-30', ppfoto: 'assets/kisi2.jpg' }
       ],
       showComments: false,
+      liked: false
     },
     // Diğer gönderiler...
   ];
 
-  constructor(private authService: AuthService ,private authdataService:AuthdataService,private http: HttpClient) {}
+  constructor(private authService: AuthService, private authdataService: AuthdataService, private http: HttpClient) {}
+
+  onLogout() {
+    this.authService.logout();
+  }
 
   ngOnInit(): void {
     this.http.get<any[]>('assets/veriler.json').subscribe(response => {
@@ -46,25 +48,11 @@ export class HomeComponent implements OnInit{
     });
   }
 
-  toggleComments(item: any) {
-    item.showComments = !item.showComments;
-  }
-
-  onLogout() {
-    this.authService.logout();  
-  }
-
-  addComment(post: {
-      yorumlar: {
-        ppfoto: string; // Bu sizin kullanıcı fotoğrafınız olabilir
-        kisi: string; // Bu sizin kullanıcı adınız olabilir
-        yorum_tarih: string; yorum: any;
-      }[];
-    }) {
+  addComment(post: any) {
     if (this.newComment.trim()) {
       post.yorumlar.push({
-        ppfoto: 'assets/kisi4.jpg', // Bu sizin kullanıcı fotoğrafınız olabilir
-        kisi: 'Siz', // Bu sizin kullanıcı adınız olabilir
+        ppfoto: 'assets/kisi4.jpg',
+        kisi: 'Siz',
         yorum_tarih: new Date().toLocaleDateString(),
         yorum: this.newComment
       });
@@ -72,16 +60,17 @@ export class HomeComponent implements OnInit{
     }
   }
 
-  likePost(post: { liked: boolean; begeni: number; }) {
+  likePost(post: any) {
     if (!post.liked) {
       post.begeni += 1;
       post.liked = true;
+    } else {
+      post.begeni -= 1;
+      post.liked = false;
     }
   }
-  showLogoutMenu = false;
 
-  toggleLogoutMenu() {
-    this.showLogoutMenu = !this.showLogoutMenu;
+  toggleComments(item: any) {
+    item.showComments = !item.showComments;
   }
 }
-

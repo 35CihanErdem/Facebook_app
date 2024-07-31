@@ -45,16 +45,67 @@
 .info-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 10px;
   font-size: 14px;
   color: #555;
 }
 
-/* Buton Grubu */
-.button-group {
+/* Butonlar */
+.buttons {
   display: flex;
   gap: 10px;
+}
+
+/* Butonlar */
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.like-btn {
+  background-color: #1877f2;
+  color: #fff;
+}
+
+.comment-btn {
+  background-color: #42b72a;
+  color: #fff;
+}
+
+.send-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.logout-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.logout-btn:hover,
+.send-btn:hover,
+.comment-btn:hover,
+.like-btn:hover {
+  opacity: 0.8;
+}
+
+.liked {
+  background-color: #f39c12 !important;
+}
+
+/* Ayrıcı */
+.separator {
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
 }
 
 /* Yorumlar */
@@ -105,52 +156,4 @@
   margin-right: 10px;
   font-size: 14px;
   color: #333;
-}
-
-/* Yorum Gönder Butonu */
-.yorum_buton {
-  padding: 8px 12px;
-  background-color: #ffffff;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.yorum_buton:hover {
-  background-color: #ffffff;
-}
-
-/* Beğen Butonu */
-.begeni_buton {
-  padding: 8px 12px;
-  background-color: #ffffff;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.begeni_buton:hover {
-  background-color: #ffffff;
-}
-
-/* Logout Butonu */
-.logout_btn {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.logout_btn:hover {
-  background-color: #ffffff;
 }

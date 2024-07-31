@@ -8,30 +8,41 @@
   <div class="content">
     <div class="info-row">
       <p>{{ item.gonderi_tarih }}</p>
-      <div class="button-group">
-        <app-btn class="begeni_buton" (click)="likePost(item)" label="Beğen"></app-btn>
-        <app-btn class="yorum_buton" (click)="toggleComments(item)" label="Yorum"></app-btn>
+      <div class="buttons">
+        <button [ngClass]="{'liked': item.liked, 'btn': true}" (click)="likePost(item)">
+          <i class="fas fa-thumbs-up"></i> Beğen
+        </button>
+        <button class="btn comment-btn" (click)="toggleComments(item)">
+          <i class="fas fa-comments"></i> Yorumlar ({{ item.yorumlar.length }})
+        </button>
       </div>
       <p>Beğeni: {{ item.begeni }}</p>
     </div>
     
-    <div *ngIf="item.showComments" class="comments">
-      <div *ngFor="let yorum of item.yorumlar" class="comment">
-        <div class="comment-header">
-          <img [src]="yorum.ppfoto" alt="profil fotoğrafı" class="profile-photo" />
-          <div class="comment-text">
-            <strong>{{ yorum.kisi }} ({{ yorum.yorum_tarih }})</strong>
-            <p class="yorumlar_bosluk">{{ yorum.yorum }}</p>
+    <div *ngIf="item.showComments">
+      <div class="comments">
+        <div *ngFor="let yorum of item.yorumlar" class="comment">
+          <div class="comment-header">
+            <img [src]="yorum.ppfoto" alt="profil fotoğrafı" class="profile-photo" />
+            <div class="comment-text">
+              <strong>{{ yorum.kisi }} ({{ yorum.yorum_tarih }})</strong>
+              <p class="yorumlar_bosluk">{{ yorum.yorum }}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="add-comment">
-      <input type="text" [(ngModel)]="newComment" placeholder="Yorum ekle..." />
-      <app-btn class="yorum_buton" (click)="addComment(item)" label="Gönder"></app-btn>
+      
+      <!-- Yorum ekleme alanı -->
+      <div class="add-comment">
+        <input type="text" [(ngModel)]="newComment" placeholder="Yorum ekle..." />
+        <button class="btn send-btn" (click)="addComment(item)">
+          Gönder
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
-<app-btn class="logout_btn" (click)="onLogout()" label="Logout"></app-btn>
+<button class="btn logout-btn" (click)="onLogout()">
+  Logout
+</button>
