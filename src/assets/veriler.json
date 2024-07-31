@@ -1,94 +1,93 @@
 [
-    {
-      "resim": "assets/background.jpg",
-      "ppfoto": "assets/kisi4.jpg",
-      "aciklama": "çok iyi değilmi?",
-      "gonderi_tarih": "2024-07-20",
-      "gonderi_kisi":"Cihan",
-      "begeni": 132,
-      "liked": false,
-      "yorumlar": [
-        {
+  {
+    "resim": "assets/background.jpg",
+    "ppfoto": "assets/kisi4.jpg",
+    "aciklama": "çok iyi değilmi?",
+    "gonderi_tarih": "20-07-2024",
+    "gonderi_kisi": "Cihan",
+    "begeni": 132,
+    "liked": false,
+    "yorumlar": [
+      {
         "ppfoto": "assets/kedi.jpg",
-          "kisi": "Ali",
-          "yorum_tarih": "2024-07-25",
-          "yorum": "helal reis!"
-        },
-        {
-            "ppfoto": "assets/kedi2.jpg",
-            "kisi": "Maraz",
-            "yorum_tarih": "2021-02-29",
-            "yorum": "bune lan hahahahha!"
-          }
-      ]
-    },
-    {
-      "resim": "assets/manzara.jpg",
-      "ppfoto": "assets/kedi2.jpg",
-      "aciklama": "Yeni fotomuz ",
-      "gonderi_tarih": "2024-07-15",
-      "gonderi_kisi":"Hayat",
-      "begeni": 241,
-      "liked": false,
-      "yorumlar": [
-        {
-            "ppfoto": "assets/kisi4.jpg",
-          "kisi": "mehmet",
-          "yorum_tarih": "2024-07-29",
-          "yorum": "efosun kanka!"
-        }
-      ]
-    },
-    {
-      "resim": "assets/tavsan.jpg",
-      "ppfoto": "assets/kisi2.jpg",
-      "aciklama": "evdeki tavaşanım kaçti 🐾 ",
-      "gonderi_tarih": "2023-07-27",
-      "gonderi_kisi":"Nur",
-      "begeni": 143,
-      "liked": false,
-      "yorumlar": [
-        {
-            "ppfoto": "assets/kisi1.jpg",
-          "kisi": "ben_kimim",
-          "yorum_tarih": "2023-07-29",
-          "yorum": "baya iyi!"
-        }
-      ]
-    },
-    {
-      "resim": "assets/panda.jpg",
-      "ppfoto": "assets/kisi2.jpg",
-      "aciklama": "tatli değilmi 😺 ?",
-      "gonderi_tarih": "2022-01-01",
-      "gonderi_kisi":"Aliş",
-      "begeni": 120,
-      "liked": false,
-      "yorumlar": [
-        {
-            "ppfoto": "assets/kisi3.jpg",
-          "kisi": "Gizli_profil",
-          "yorum_tarih": "2022-03-04",
-          "yorum": "çokk tatlii!"
-        }
-      ]
-    },
-    {
-      "resim": "assets/köpek.jpg",
-      "ppfoto": "assets/kisi4.jpg",
-      "aciklama": "köpeğimle anılar 🌸",
-      "gonderi_tarih": "2021-02-25",
-      "gonderi_kisi":"Memo",
-      "begeni": 213,
-      "liked": false,
-      "yorumlar": [
-        {
+        "kisi": "Ali",
+        "yorum_tarih": "25-07-2024",
+        "yorum": "helal reis!"
+      },
+      {
+        "ppfoto": "assets/kedi2.jpg",
+        "kisi": "Maraz",
+        "yorum_tarih": "29-02-2021",
+        "yorum": "bune lan hahahahha!"
+      }
+    ]
+  },
+  {
+    "resim": "assets/manzara.jpg",
+    "ppfoto": "assets/kedi2.jpg",
+    "aciklama": "Yeni fotomuz",
+    "gonderi_tarih": "15-07-2024",
+    "gonderi_kisi": "Hayat",
+    "begeni": 241,
+    "liked": false,
+    "yorumlar": [
+      {
+        "ppfoto": "assets/kisi4.jpg",
+        "kisi": "mehmet",
+        "yorum_tarih": "29-07-2024",
+        "yorum": "efosun kanka!"
+      }
+    ]
+  },
+  {
+    "resim": "assets/tavsan.jpg",
+    "ppfoto": "assets/kisi2.jpg",
+    "aciklama": "evdeki tavaşanım kaçti 🐾",
+    "gonderi_tarih": "27-07-2023",
+    "gonderi_kisi": "Nur",
+    "begeni": 143,
+    "liked": false,
+    "yorumlar": [
+      {
+        "ppfoto": "assets/kisi1.jpg",
+        "kisi": "ben_kimim",
+        "yorum_tarih": "29-07-2023",
+        "yorum": "baya iyi!"
+      }
+    ]
+  },
+  {
+    "resim": "assets/panda.jpg",
+    "ppfoto": "assets/kisi2.jpg",
+    "aciklama": "tatli değilmi 😺 ?",
+    "gonderi_tarih": "01-01-2022",
+    "gonderi_kisi": "Aliş",
+    "begeni": 120,
+    "liked": false,
+    "yorumlar": [
+      {
         "ppfoto": "assets/kisi3.jpg",
-          "kisi": "Maraz",
-          "yorum_tarih": "2021-02-29",
-          "yorum": "bune lan hahahahha idare eder benimki pitbull!"
-        }
-      ]
-    }
-  ]
-  
+        "kisi": "Gizli_profil",
+        "yorum_tarih": "04-03-2022",
+        "yorum": "çokk tatlii!"
+      }
+    ]
+  },
+  {
+    "resim": "assets/köpek.jpg",
+    "ppfoto": "assets/kisi4.jpg",
+    "aciklama": "köpeğimle anılar 🌸",
+    "gonderi_tarih": "25-02-2021",
+    "gonderi_kisi": "Memo",
+    "begeni": 213,
+    "liked": false,
+    "yorumlar": [
+      {
+        "ppfoto": "assets/kisi3.jpg",
+        "kisi": "Maraz",
+        "yorum_tarih": "29-02-2021",
+        "yorum": "bune lan hahahahha idare eder benimki pitbull!"
+      }
+    ]
+  }
+]
