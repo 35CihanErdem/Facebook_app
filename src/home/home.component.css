@@ -18,8 +18,8 @@
   max-width: 100%;
 }
 
-/* Profil Fotoğrafı */
-.profile-photo {
+/* Gönderi Fotoğrafı */
+.post-photo {
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -28,32 +28,63 @@
   left: 10px;
 }
 
-/* Açıklama */
-.description {
-  margin-top: 60px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
+/* Profil Fotoğrafı Yorumlar */
+.profile-photo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; /* Fotoğraf ile yorum metni arasındaki boşluk */
 }
 
-/* İçerik */
-.content {
-  margin-top: 20px;
+/* Yorum Metin Kutusu */
+.comment-text {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-left: 10px; /* Profil fotoğrafı ile metin arasındaki boşluk */
 }
 
-/* Bilgi Satırı */
-.info-row {
+/* Yorumlar */
+.comments {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Tekil Yorum */
+.comment {
+  margin-bottom: 15px; /* Yorumlar arasındaki boşluk */
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+/* Yorum Başlığı */
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Yorum Boşluğu */
+.yorumlar_bosluk {
+  margin-top: 5px;
+}
+
+/* Yorum Ekleme Alanı */
+.add-comment {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-comment input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
   font-size: 14px;
-  color: #555;
-}
-
-/* Butonlar */
-.buttons {
-  display: flex;
-  gap: 10px;
+  color: #333;
 }
 
 /* Butonlar */
@@ -68,6 +99,7 @@
   gap: 5px;
 }
 
+/* Buton Renkleri */
 .like-btn {
   background-color: #1877f2;
   color: #fff;
@@ -102,58 +134,19 @@
   background-color: #f39c12 !important;
 }
 
-/* Ayrıcı */
-.separator {
-  border-top: 1px solid #ddd;
-  margin: 10px 0;
-}
-
-/* Yorumlar */
-.comments {
-  margin-top: 10px;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-}
-
-/* Tekil Yorum */
-.comment {
+/* Bilgi Satırı */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
-  display: flex;
-  align-items: flex-start;
-}
-
-/* Yorum Başlığı */
-.comment-header {
-  display: flex;
-  align-items: center;
-}
-
-/* Yorum Metni */
-.comment-text {
-  margin-left: 10px;
-  flex: 1;
   font-size: 14px;
-  color: #333;
+  color: #555;
 }
 
-/* Yorum Boşluğu */
-.yorumlar_bosluk {
-  margin-top: 5px;
-}
-
-/* Yorum Ekleme Alanı */
-.add-comment {
+/* Butonlar Alanı */
+.buttons {
   display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.add-comment input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-size: 14px;
-  color: #333;
+  gap: 10px; /* Butonlar arasındaki boşluk */
+  margin: 20px;
 }
