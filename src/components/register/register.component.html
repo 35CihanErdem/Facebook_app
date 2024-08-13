@@ -11,16 +11,39 @@
           <form (ngSubmit)="onSubmit()" class="p-d-flex p-flex-column p-ai-center">
             <div class="p-field p-mb-4">
               <label for="username" class="p-mb-3 bosluk">Username :</label>
-              <input type="text" id="username" pInputText [(ngModel)]="username" name="username" placeholder="Enter your username" class="p-input-lg p-border-rounded bosluk" required>
+              <input 
+                type="text" 
+                id="username" 
+                pInputText 
+                [(ngModel)]="username" 
+                name="username" 
+                placeholder="Enter your username" 
+                class="p-input-lg p-border-rounded bosluk" 
+                required
+              >
             </div>
 
             <div class="p-field p-mb-4">
               <label for="password" class="p-mb-3 bosluk"> Password :</label>
-              <input type="password" id="password" pInputText [(ngModel)]="password" name="password" placeholder="Enter your password" class="p-input-lg p-border-rounded bosluk" required>
+              <input 
+                type="password" 
+                id="password" 
+                pInputText 
+                [(ngModel)]="password" 
+                name="password" 
+                placeholder="Enter your password" 
+                class="p-input-lg p-border-rounded bosluk" 
+                required
+              >
             </div>
 
             <div class="p-d-flex p-jc-center">
-              <p-button label="Register" class="p-button-lg p-button-rounded" type="submit"></p-button>
+              <button 
+                pButton 
+                label="Register" 
+                class="p-button-lg p-button-rounded" 
+                type="submit">
+              </button>
             </div>
 
             <p *ngIf="errorMessage" class="error-message p-mt-4">{{ errorMessage }}</p>

@@ -20,7 +20,13 @@ export class AuthService {
 
   private checkUserUrl = `${this.apiUrl}/check`;
 
+  private deleteUrl =`${this.apiUrl}/delete`;
 
+  private uptadeUrl=`${this.apiUrl}/update`;
+
+  getUserByUsername(username: string): Observable<any> {
+    return this.http.get(`/api/users/${username}`);
+  }
 
   login(username:string,password:any):Observable<any>{
     return this.http.post<any>(this.loginUrl,{username,password}).pipe(
@@ -59,11 +65,30 @@ export class AuthService {
     );
   }
 
+  delete(username: string): Observable<any> {
+    const params = new HttpParams().set('username', username);
+    return this.http.delete<any>(this.deleteUrl, { params }).pipe(
+      map(response => response),
+      catchError(error => {
+        console.error('Delete user error:', error);
+        return of({ success: false, message: error.message || 'An error occurred during deletion' });
+      })
+    );
+  }
 
+  
+  update(username: string, password: string, newPassword: string): Observable<any> {
+    return this.http.put<any>(this.uptadeUrl, { username, password, newPassword }).pipe(
+      map(response => response),
+      catchError(error => {
+        console.error('Update user error:', error);
+        return of({ success: false, message: error.message || 'An error occurred during update' });
+      })
+    );
+  }
+  
   logout() {
 
-    localStorage.removeItem('userToken');
-    
     this.router.navigate(['/login']);
   }
 

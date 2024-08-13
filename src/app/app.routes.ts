@@ -5,7 +5,7 @@ import { HomeComponent } from '../components/home/home.component';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from '../auth/authguard.service';
 import { ForgotPasswordComponent } from '../components/forgot-password/forgot-password.component';
-import { RegisterComponent } from '../register/register/register.component';
+import { RegisterComponent } from '../components/register/register.component';
 
 
 

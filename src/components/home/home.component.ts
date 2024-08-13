@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoutComponent } from '../../logout/logout/logout.component'; 
+import { LogoutComponent } from '../logout/logout.component'; 
 import { AuthdataService } from '../../auth/authdata.service';
 import { AuthService } from '../../auth/auth.service'; 
 import { HttpClient, HttpClientModule } from '@angular/common/http';

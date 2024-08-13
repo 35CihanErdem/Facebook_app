@@ -1,21 +1,25 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { BtnComponent } from '../../forms/btn/btn.component';
 import { InputComponent } from '../../forms/input/input.component';
-import { RouterModule,Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service'; 
-import { Button } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [BtnComponent,InputComponent,
-    RouterModule,Button,
-    FormsModule,CommonModule],
+  imports: [
+    BtnComponent, 
+    InputComponent,
+    RouterModule,
+    ButtonModule,
+    FormsModule,
+    CommonModule
+  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css'], // Düzeltildi
   encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent {

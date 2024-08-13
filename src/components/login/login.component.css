@@ -1,9 +1,16 @@
+h1{
 
+  font-size: 30px;
+  color:#007bff;
+
+}
 .login-page {
-  display: grid;
+  display:grid;
   grid-template-columns: 1fr 1.5fr;
   min-height: 725px;
   min-width: 100%;
+  border: 100px ,solid,#ffffff;
+
 }
 
 .login-content {
@@ -32,7 +39,8 @@
 
 .p-input-lg {
   font-size: 1rem;
-  padding: 0.75rem; 
+  padding: 1rem; 
+  width: 400px;
 }
 
 .p-border-rounded {
@@ -53,20 +61,15 @@
 }
 
 .decorative-panel {
-  background: url('../../assets/background.jpg') no-repeat center center;
-  background-size: cover;
-  display: block;
-}
+  background: url('../../assets/facebook-back.png') no-repeat center center;
+  background-size:contain;
+  display:inline-block;
+  margin-right: 20px;
 
-.user-icon {
-  background-image: url('../../assets/kedi.jpg');
-  background-size: cover;
-  width: 40px; /* İkonun boyutunu ayarlayın */
-  height: 40px;
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .login-page {
     grid-template-columns: 1fr;
   }

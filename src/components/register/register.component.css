@@ -1,0 +1,31 @@
+.login-page {
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.bosluk {
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.decorative-panel {
+  background-image: url('../../assets/background.jpg');
+  background-size: cover;
+}
