@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
 import { CommonModule } from '@angular/common';
-import { LogoutComponent } from '../logout/logout/logout.component';
-
-import { AuthdataService } from '../auth/authdata.service';
+import { LogoutComponent } from '../../logout/logout/logout.component'; 
+import { AuthdataService } from '../../auth/authdata.service';
+import { AuthService } from '../../auth/auth.service'; 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BtnComponent } from "../forms/btn/btn.component";  
+import { BtnComponent } from '../../forms/btn/btn.component'; 
 import { FormsModule } from '@angular/forms';
 
 

@@ -1,14 +1,34 @@
-<div class="login-container">
-  <div class="giris_form">
-    <h2>Kayıt Ol</h2>
-    <form (ngSubmit)="register()">
-      <app-input class="register_name" label="Kullanıcı Adı:" [value]="username" (valueChange)="onUsernameChange($event)"></app-input>
-      <app-input type="password"  class="register_password" label="Parola:" [value]="password" (valueChange)="onPasswordChange($event)"></app-input>
-      <app-btn (buton)="btnregister()" label="Kayıt Ol"></app-btn>
-      <p class="login-link">
-        Zaten bir hesabınız var mı? <a [routerLink]="['/login']">Giriş Yap</a>
-      </p>
-    </form>
-  </div>
-</div>
+<div class="login-page p-grid">
+  <div class="login-content p-col p-d-flex p-ai-center p-jc-center">
+    <div class="form-container p-mt-2 p-d-flex p-flex-column p-ai-center p-jc-center">
+      <div class="login-header p-d-flex p-flex-column p-ai-center p-mb-4">
+        <h1>Register</h1>
+        <p>Enter your details to create an account.</p>
+      </div>
 
+      <div class="card p-mb-4 p-shadow-4 p-d-flex p-flex-column p-ai-center">
+        <div class="p-fluid">
+          <form (ngSubmit)="onSubmit()" class="p-d-flex p-flex-column p-ai-center">
+            <div class="p-field p-mb-4">
+              <label for="username" class="p-mb-3 bosluk">Username :</label>
+              <input type="text" id="username" pInputText [(ngModel)]="username" name="username" placeholder="Enter your username" class="p-input-lg p-border-rounded bosluk" required>
+            </div>
+
+            <div class="p-field p-mb-4">
+              <label for="password" class="p-mb-3 bosluk"> Password :</label>
+              <input type="password" id="password" pInputText [(ngModel)]="password" name="password" placeholder="Enter your password" class="p-input-lg p-border-rounded bosluk" required>
+            </div>
+
+            <div class="p-d-flex p-jc-center">
+              <p-button label="Register" class="p-button-lg p-button-rounded" type="submit"></p-button>
+            </div>
+
+            <p *ngIf="errorMessage" class="error-message p-mt-4">{{ errorMessage }}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="decorative-panel p-hidden p-lg-block"></div>
+</div>

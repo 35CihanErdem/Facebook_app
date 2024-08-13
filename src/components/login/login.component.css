@@ -58,6 +58,14 @@
   display: block;
 }
 
+.user-icon {
+  background-image: url('../../assets/kedi.jpg');
+  background-size: cover;
+  width: 40px; /* İkonun boyutunu ayarlayın */
+  height: 40px;
+}
+
+
 @media (max-width: 800px) {
   .login-page {
     grid-template-columns: 1fr;
@@ -101,5 +109,4 @@
 
 .bosluk{
   margin-top: 15px;
-  margin-right: 10px;
 }

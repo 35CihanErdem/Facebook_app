@@ -1,0 +1,63 @@
+<div class="login-page p-grid">
+  <div class="login-content p-col">
+    <div class="login-header p-d-flex p-flex-column p-ai-center p-mb-4">
+      
+      <h1>Welcome back!</h1>
+      <p>Enter to get unlimited access to data & information.</p>
+    </div>
+
+    <div class="form-container p-mt-2">
+      <div class="card p-mb-4 p-shadow-4">
+        <div class="p-fluid">
+          <div class="p-field p-mb-4">
+            <label for="username" class="p-mb-3 bosluk">Username</label>
+            <input type="text" id="username" pInputText [(ngModel)]="username" placeholder="Enter your username" class="p-input-lg p-border-rounded bosluk">
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-mb-4 p-shadow-4">
+        <div class="p-fluid">
+          <div class="p-field p-mb-4">
+            <label for="password" class="p-mb-3 bosluk">Password</label>
+            <input type="password" id="password" pInputText [(ngModel)]="password" placeholder="Enter your password" class="p-input-lg p-border-rounded bosluk">
+          </div>
+
+          <div class="p-d-flex p-jc-between p-ai-center p-mb-4">
+            <div class="p-d-flex p-ai-center">
+              <input type="checkbox" id="remember-me" class="p-mr-2">
+              <label for="remember-me" class="p-mb-0">Remember me</label>
+            </div>
+            <p class="forgot-password p-mb-0">
+              <a href="">Forgot your password?</a>
+            </p>
+          </div>
+
+          <div class="p-d-flex p-jc-center">
+            <p-button label="Login" class="p-button-lg p-button-rounded" (click)="onSubmit()"></p-button>
+          </div>
+
+          <div class="p-d-flex p-jc-center p-mt-4">
+            <div class="divider-container p-d-flex p-ai-center">
+              <hr class="divider-line p-mx-2">
+              <span class="divider-text">Or, login with</span>
+              <hr class="divider-line p-mx-2">
+            </div>
+          </div>
+
+          <div class="p-d-flex p-jc-center">
+            <p-button label="Login with Microsoft" icon="pi pi-microsoft" class="p-button-rounded p-button-lg p-mt-4"></p-button>
+          </div>
+
+          <div class="p-d-flex p-jc-center p-mt-4">
+            <p class="register-link">
+              <a href="">Hesabınız yok mu? Kayıt olun</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="decorative-panel p-hidden p-lg-block"></div>
+</div>

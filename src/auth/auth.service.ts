@@ -1,91 +1,73 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private usersKey = 'users';
-  private users: { username: string; password: string }[] = [];
+ 
+  constructor(private http:HttpClient,private router:Router){}
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router 
-  ) {
-    this.loadUsers();
+  private apiUrl='http://localhost:5154/User';
+
+  private registerUrl=`${this.apiUrl}/register`;
+
+  private loginUrl=`${this.apiUrl}/login`;
+
+  private checkUserUrl = `${this.apiUrl}/check`;
+
+
+
+  login(username:string,password:any):Observable<any>{
+    return this.http.post<any>(this.loginUrl,{username,password}).pipe(
+      map(response => {
+        if (response.success) {
+          return { success: true, user: response.user };
+        } else {
+          return { success: false, message: response.message || 'Login failed' };
+        }
+      }),
+      catchError(error=>{
+        console.error('login error:',error);
+        return of ({success:false,message:error.message||'an error occured during login '});
+      })
+    );
   }
 
-  private getStorage(): Storage | null {
-    if (isPlatformBrowser(this.platformId)) {
-      return localStorage;
-    }
-    return null;
-  }
-
-  private loadUsers(): void {
-    const storage = this.getStorage();
-    if (storage) {
-      const usersJson = storage.getItem(this.usersKey);
-      if (usersJson) {
-        this.users = JSON.parse(usersJson);
-      }
-    }
-  }
-
-  private saveUsers(): void {
-    const storage = this.getStorage();
-    if (storage) {
-      storage.setItem(this.usersKey, JSON.stringify(this.users));
-    }
-  }
-
-  login(username: string, password: string): boolean {
-    const user = this.users.find(user => user.username === username && user.password === password);
-    if (user) {
-      const storage = this.getStorage();
-      if (storage) {
-        storage.setItem('isLoggedIn', 'true');
-      }
-      return true;
-    }
-    return false;
-  }
-
-  register(username: string, password: string): boolean {
-    const userExists = this.users.some(user => user.username === username);
-    if (userExists) {
-      return false; 
-    }
-    this.users.push({ username, password });
-    this.saveUsers(); 
-    return true; 
-  }
-
-  isLoggedIn(): boolean {
-    const storage = this.getStorage();
-    if (storage) {
-      return storage.getItem('isLoggedIn') === 'true';
-    }
-    return false;
-  }
-
-  logout(): void {
-    const storage = this.getStorage();
-    if (storage) {
-      storage.removeItem('isLoggedIn');
-      this.router.navigate(['/login']);  // Çıkış yaptıktan sonra login sayfasına yönlendir
-    }
-  }
-
-  resetPassword(username: string, newPassword: string): boolean {
-    const user = this.users.find(user => user.username === username);
-    if (user) {
-      user.password = newPassword;
-      this.saveUsers();
-      return true;
-    }
-    return false;
+  register(username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.registerUrl, { username, password }).pipe(
+      map(response => response),
+      catchError(error => {
+        console.error('Register error:', error);
+        return of({ success: false, message: error.message || 'An error occurred during registration' });
+      })
+    );
   }
   
+  checkUser(username: string): Observable<any> {
+    const params = new HttpParams().set('username', username);
+    return this.http.get<any>(this.checkUserUrl, { params }).pipe(
+      map(response => response),
+      catchError(error => {
+        console.error('Check user error:', error);
+        return of({ exists: false, message: error.message || 'An error occurred while checking user' });
+      })
+    );
+  }
+
+
+  logout() {
+
+    localStorage.removeItem('userToken');
+    
+    this.router.navigate(['/login']);
+  }
+
+
+
+
 }
