@@ -113,3 +113,9 @@ h1{
 .bosluk{
   margin-top: 15px;
 }
+.error-message {
+  color: #ff4d4d; /* Kırmızımsı bir renk ile hata mesajını belirgin hale getirir */
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
