@@ -1,3 +1,4 @@
+
 <div class="login-page p-grid">
   <div class="login-content p-col">
     <div class="login-header p-d-flex p-flex-column p-ai-center p-mb-4">
@@ -21,7 +22,9 @@
          
             <input type="password" id="password" pInputText [(ngModel)]="password" placeholder="Enter your password" class="p-input-lg p-border-rounded bosluk">
           </div>
-
+          <div *ngIf="errorMessage" style="color: red;" class=" error-message p-mb-4 ">
+            {{ errorMessage }}
+          </div>
           <div class="p-d-flex p-jc-between p-ai-center p-mb-4">
             <div class="p-d-flex p-ai-center">
               <input type="checkbox" id="remember-me" class="p-mr-2">
@@ -39,13 +42,13 @@
           <div class="p-d-flex p-jc-center p-mt-4">
             <div class="divider-container p-d-flex p-ai-center">
               <hr class="divider-line p-mx-2">
-              <span class="divider-text">Or, login with</span>
+              <span class="divider-text">Or,Register</span>
               <hr class="divider-line p-mx-2">
             </div>
           </div>
 
           <div class="p-d-flex p-jc-center">
-            <p-button label="Kayıt Ol" icon="" class="p-button-rounded p-button-lg p-mt-4"></p-button>
+            <p-button label="Register" icon="" class="p-button-rounded p-button-lg p-mt-4" (click)="register()"></p-button>
           </div>
 
         

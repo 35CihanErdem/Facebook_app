@@ -19,11 +19,10 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent  {
   username: string = '';
   password: string = '';
-  errorMessage: string | null = null;
+  errorMessage: string="";
   showAccountForm: boolean = false; 
 
   accounts: any[] = []; 
- 
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -47,18 +46,26 @@ export class LoginComponent  {
     this.showAccountForm = false; // Hesap formunu kapat
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
   onSubmit() {
+    if (!this.username || !this.password) {
+      this.errorMessage = 'Username and password cannot be empty.';
+      return;
+    }
+
     this.authService.login(this.username, this.password).subscribe(
       response => {
         if (response.success) {
           this.router.navigate(['/home']);
         } else {
-          this.router.navigate(['/register']);
+          this.errorMessage = 'Invalid username or password.';
         }
       },
       error => {
-        this.errorMessage = 'An error occurred during registration';
-        this.router.navigate(['/register']);
+        this.errorMessage = 'An error occurred during login.';
       }
     );
   }
