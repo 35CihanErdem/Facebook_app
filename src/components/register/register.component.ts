@@ -30,6 +30,10 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
+    if (!this.username || !this.password) {
+      this.errorMessage = 'Username and password cannot be empty.';
+      return;
+    }
     this.authService.register(this.username, this.password).subscribe(
       response => {
         if (response.success) {

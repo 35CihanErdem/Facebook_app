@@ -20,31 +20,11 @@ export class LoginComponent  {
   username: string = '';
   password: string = '';
   errorMessage: string="";
-  showAccountForm: boolean = false; 
+ 
 
-  accounts: any[] = []; 
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  login(account: any) {
-    // Hesap ile giriş yapma işlemleri
-    console.log('Giriş yapılan hesap:', account);
-  }
-
-  removeAccount(account: any) {
-    // Hesabı kaldır
-    this.accounts = this.accounts.filter(acc => acc !== account);
-  }
-
-  showAddAccount() {
-    this.showAccountForm = !this.showAccountForm; // Hesap formunu aç/kapat
-  }
-
-  onAddAccount() {
-    // Yeni hesap ekleme işlemlerini burada yapabilirsiniz.
-    console.log('Yeni hesap eklendi');
-    this.showAccountForm = false; // Hesap formunu kapat
-  }
 
   register() {
     this.router.navigate(['/register']);

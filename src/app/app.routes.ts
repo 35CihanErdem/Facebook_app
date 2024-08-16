@@ -3,7 +3,7 @@ import { LoginComponent } from '../components/login/login.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from '../components/home/home.component'; 
 import { NgModule } from '@angular/core';
-import { AuthGuard } from '../auth/authguard.service';
+import { AuthGuard } from '../auth/authguard/authguard.service';
 import { ForgotPasswordComponent } from '../components/forgot-password/forgot-password.component';
 import { RegisterComponent } from '../components/register/register.component';
 

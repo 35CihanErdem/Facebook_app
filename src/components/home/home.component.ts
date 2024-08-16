@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogoutComponent } from '../logout/logout.component'; 
-import { AuthdataService } from '../../auth/authdata.service';
+import { AuthdataService } from '../../auth/jsonfile/authdata.service';
 import { AuthService } from '../../auth/auth.service'; 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BtnComponent } from '../../forms/btn/btn.component'; 

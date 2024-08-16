@@ -1,31 +1,116 @@
+h1 {
+  font-size: 30px;
+  color: #007bff;
+}
+
 .login-page {
-  min-height: 100vh;
-  background-color: #f4f4f9;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  min-height: 725px;
+  min-width: 100%;
+  border: 100px solid #ffffff;
 }
 
-.form-container {
+.login-content {
+  padding-left: 70px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forgot-password {
+  margin-top: 23px;
+  margin-left: 20px;
+}
+
+.p-d-flex.p-jc-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #fff;
 }
 
-.login-header h1 {
-  font-size: 2rem;
-  margin-bottom: 8px;
+.p-field.p-mb-4 {
+  margin-bottom: 1.5rem;
 }
 
-.bosluk {
-  margin-bottom: 10px;
+.p-input-lg {
+  font-size: 1rem;
+  padding: 1rem;
+  width: 400px;
 }
 
-.error-message {
-  color: #e74c3c;
-  font-weight: bold;
+.p-border-rounded {
+  border-radius: 0.5rem;
+}
+
+.p-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.p-button-lg {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.p-button-rounded {
+  border-radius: 0.5rem;
 }
 
 .decorative-panel {
-  background-image: url('../../assets/background.jpg');
-  background-size: cover;
+  background: url('../../assets/facebook-back.png') no-repeat center center;
+  background-size: contain;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+@media (max-width: 900px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .decorative-panel {
+    display: none;
+  }
+}
+
+.divider-container {
+  display: flex;
+  align-items: center;
+}
+
+.divider-line {
+  flex: 1;
+  border: 0;
+  border-top: 1px solid #000000;
+  margin: 0 1rem;
+}
+
+.divider-text {
+  font-size: 1rem;
+  color: #000000;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.bosluk {
+  margin-top: 15px;
+}
+
+.error-message {
+  color: #ff4d4d; 
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
 }
