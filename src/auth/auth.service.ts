@@ -15,10 +15,8 @@ export class AuthService {
   private checkUserUrl = `${this.apiUrl}/check`;
   private deleteUrl = `${this.apiUrl}/delete`;
   private updateUrl = `${this.apiUrl}/update`;
-  private forgotPasswordUrl = `${this.apiUrl}/forgot-password`;
-  private resetPasswordUrl = `${this.apiUrl}/reset-password`;
-  
 
+  
   constructor(private http: HttpClient, private router: Router) {}
 
 
@@ -84,25 +82,7 @@ export class AuthService {
     );
   }
 
-  forgotPassword(email: string): Observable<any> {
-    return this.http.post<any>(this.forgotPasswordUrl, { email }).pipe(
-      map(response => response),
-      catchError(error => {
-        console.error('Forgot password error:', error);
-        return of({ success: false, message: error.message || 'An error occurred during forgot password process' });
-      })
-    );
-  }
 
-  resetPassword(token: string, newPassword: string): Observable<any> {
-    return this.http.post<any>(this.resetPasswordUrl, { token, newPassword }).pipe(
-      map(response => response),
-      catchError(error => {
-        console.error('Reset password error:', error);
-        return of({ success: false, message: error.message || 'An error occurred during password reset' });
-      })
-    );
-  }
 
   logout() {
     this.isLoggedIn=false;

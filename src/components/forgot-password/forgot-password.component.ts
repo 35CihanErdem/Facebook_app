@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Button } from 'primeng/button';
+
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
@@ -12,25 +13,23 @@ import { Button } from 'primeng/button';
   styleUrl: './forgot-password.component.css'
 })
 export class ForgotPasswordComponent {
-  username: string = '';
-  password: string = '';
-  confirmPassword: string = '';
 
-  constructor(private authService: AuthService) {}
+  username: string = '';
+  newPassword: any = '';
+  password: any;
+  message: string = '';
+ 
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   resetPassword() {
-    if (this.password !== this.confirmPassword) {
-      console.error('Passwords do not match');
-      return;
-    }
-
-    // AuthService üzerinden reset password işlemini yapın
-    this.authService.resetPassword(this.username, this.password).subscribe(response => {
+   
+    this.authService.update(this.username,this.password, this.newPassword).subscribe(response => {
       if (response.success) {
-        console.log('Password reset successful');
-        // Başarılı resetten sonra yapılacak işlemler
+        this.message = 'Password updated successfully.';
+        this.router.navigate(['/login']);
       } else {
-        console.error('Password reset failed:', response.message);
+        this.message = response.message || 'An error occurred during password reset.';
       }
     });
   }
