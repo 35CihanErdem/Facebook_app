@@ -9,12 +9,6 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-
-  getCurrentUser() {
-    
-  }
-
-
   private apiUrl = 'http://localhost:5154/User';
   private registerUrl = `${this.apiUrl}/register`;
   private loginUrl = `${this.apiUrl}/login`;
@@ -23,24 +17,20 @@ export class AuthService {
   private updateUrl = `${this.apiUrl}/update`;
   private forgotPasswordUrl = `${this.apiUrl}/forgot-password`;
   private resetPasswordUrl = `${this.apiUrl}/reset-password`;
+  
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getUserByUsername(username: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/users/${username}`).pipe(
-      map(response => response),
-      catchError(error => {
-        console.error('Get user error:', error);
-        return of({ success: false, message: error.message || 'An error occurred while fetching user' });
-      })
-    );
-  }
 
+  public isLoggedIn=false;
+    
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.loginUrl, { username, password }).pipe(
       map(response => {
         if (response.success) {
-          return { success: true, user: response.user };
+          this.isLoggedIn=true;
+          return { success: true, user: response.user};
+          
         } else {
           return { success: false, message: response.message || 'Login failed' };
         }
@@ -115,6 +105,10 @@ export class AuthService {
   }
 
   logout() {
+    this.isLoggedIn=false;
     this.router.navigate(['/login']);
   }
 }
+
+
+

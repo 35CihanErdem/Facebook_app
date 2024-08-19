@@ -1,9 +1,8 @@
-import { Component,OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from '../components/login/login.component'; 
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../auth/auth.service';
 import { LogoutComponent } from '../components/logout/logout.component';
 import { HomeComponent } from '../components/home/home.component'; 
 import { HttpClientModule } from '@angular/common/http';
@@ -16,9 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './app.component.css'
 })
 export class AppComponent  {
-
-  constructor(private authService: AuthService, private router: Router) {}
-
 
   
 }

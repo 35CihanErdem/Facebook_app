@@ -12,26 +12,25 @@ import { Button } from 'primeng/button';
   styleUrl: './forgot-password.component.css'
 })
 export class ForgotPasswordComponent {
-
   username: string = '';
-  newPassword: string = '';
+  password: string = '';
   confirmPassword: string = '';
-  message: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 
   resetPassword() {
-    if (this.newPassword !== this.confirmPassword) {
-      this.message = 'Passwords do not match.';
+    if (this.password !== this.confirmPassword) {
+      console.error('Passwords do not match');
       return;
     }
 
-    this.authService.update(this.username, '', this.newPassword).subscribe(response => {
+    // AuthService üzerinden reset password işlemini yapın
+    this.authService.resetPassword(this.username, this.password).subscribe(response => {
       if (response.success) {
-        this.message = 'Password updated successfully.';
-        this.router.navigate(['/login']);
+        console.log('Password reset successful');
+        // Başarılı resetten sonra yapılacak işlemler
       } else {
-        this.message = response.message || 'An error occurred during password reset.';
+        console.error('Password reset failed:', response.message);
       }
     });
   }
